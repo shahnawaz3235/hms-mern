@@ -34,7 +34,7 @@ const AppointmentForm = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/doctors",
+          "https://hms-mern-backend.vercel.app/api/v1/user/doctors",
           { withCredentials: true }
         );
         setDoctors(data.doctors);
@@ -49,7 +49,7 @@ const AppointmentForm = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        "https://hms-mern-backend.vercel.app/api/v1/appointment/post",
         {
           firstname,
           lastname,

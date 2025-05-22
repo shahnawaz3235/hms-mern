@@ -15,7 +15,7 @@ config({path: "./config/config.env"});
 //middlewares
 //for connecting frontend and backend 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+    origin: ["https://hms-mern-frontend.vercel.app", "https://hms-mern-dashboard.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }))

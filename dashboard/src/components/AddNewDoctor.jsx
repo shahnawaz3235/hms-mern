@@ -61,7 +61,7 @@ const AddNewDoctor = () => {
       formData.append("role", role);
       
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/doctor/addnew", 
+        "https://hms-mern-backend.vercel.app/api/v1/user/doctor/addnew", 
         formData, 
         { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
       );

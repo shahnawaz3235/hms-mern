@@ -18,7 +18,7 @@ function App() {
 
   const fetchUser = async () => {
     try {
-      const responce = await axios.get("http://localhost:4000/api/v1/user/patient/me", {
+      const responce = await axios.get("https://hms-mern-backend.vercel.app/api/v1/user/patient/me", {
         withCredentials: true,
       });
       setIsAuthenticated(true);

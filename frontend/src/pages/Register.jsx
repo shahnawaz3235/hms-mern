@@ -23,7 +23,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        "https://hms-mern-backend.vercel.app/api/v1/user/patient/register",
         { firstname, lastname, email, phone, gender, dob, password, nic, role: "Patient" },
         {
           withCredentials: true,
