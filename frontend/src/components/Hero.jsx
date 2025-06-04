@@ -2,31 +2,32 @@ import React from "react";
 
 const Hero = ({ title, imageUrl }) => {
   return (
-    <div className="container mx-auto px-6 py-16 bg-gradient-to-r from-purple-600 to-blue-500 text-white mt-10">
-      <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+    <section className="bg-[#F5F5F5] py-16">
+      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
         {/* Text Content */}
-        <div className="text-center md:text-left space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
-          <p className="text-lg md:text-xl opacity-80">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ullam,
-            exercitationem omnis, natus aut consequuntur cupiditate veniam iure
-            aspernatur quod sit debitis, quia dolor neque nam alias. Deleniti,
-            voluptatum voluptas.
+        <div className="text-center md:text-left max-w-xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A237E] leading-tight mb-6">
+            {title}
+          </h1>
+          <p className="text-[#757575] text-lg mb-6">
+            Delivering compassionate and advanced healthcare through innovation
+            and care. Your health, our mission.
           </p>
+          <button className="bg-[#4FC3F7] hover:bg-[#1A237E] text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
+            Book Appointment
+          </button>
         </div>
-        {/* Image Content */}
-        <div className="relative w-full md:w-1/2">
+
+        {/* Hero Image */}
+        <div className="mb-10 md:mb-0">
           <img
             src={imageUrl}
-            alt="hero"
-            className="w-full h-auto rounded-lg shadow-lg transform transition duration-500 hover:scale-105"
+            alt="Hospital"
+            className="w-full max-w-md rounded-lg shadow-lg"
           />
-          <span className="absolute bottom-0 right-0 mb-4 mr-4 transform scale-75 opacity-70 hover:scale-100 transition-all duration-300">
-            <img src="/Vector.png" alt="vector" />
-          </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

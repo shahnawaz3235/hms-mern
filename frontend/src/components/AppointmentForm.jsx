@@ -70,6 +70,7 @@ const AppointmentForm = () => {
         }
       );
       toast.success(data.message);
+      // Reset form
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -90,141 +91,191 @@ const AppointmentForm = () => {
   };
 
   return (
-    <div className="container mx-auto px-6 py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-xl mt-10">
-      <h2 className="text-3xl font-semibold text-center mb-8">Appointment</h2>
+    <div className="max-w-3xl mx-auto p-8 bg-[#FFFFFF] rounded-lg shadow-md">
+      <h2 className="text-[#1A237E] text-3xl font-semibold mb-6 text-center">
+        Book an Appointment
+      </h2>
       <form onSubmit={handleAppointment} className="space-y-6">
         {/* Name Fields */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstname}
-            onChange={(e) => setFirstName(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastname}
-            onChange={(e) => setLastName(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex flex-col text-[#212121] font-medium">
+            First Name
+            <input
+              type="text"
+              value={firstname}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+              placeholder="John"
+            />
+          </label>
+          <label className="flex flex-col text-[#212121] font-medium">
+            Last Name
+            <input
+              type="text"
+              value={lastname}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+              placeholder="Doe"
+            />
+          </label>
         </div>
 
-        {/* Email and Phone Fields */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
-          <input
-            type="tel"
-            placeholder="Mobile Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
+        {/* Email and Phone */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex flex-col text-[#212121] font-medium">
+            Email
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+              placeholder="email@example.com"
+            />
+          </label>
+          <label className="flex flex-col text-[#212121] font-medium">
+            Mobile Number
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+              placeholder="+1234567890"
+            />
+          </label>
         </div>
 
-        {/* NIC and DOB Fields */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
-          <input
-            type="text"
-            placeholder="NIC"
-            value={nic}
-            onChange={(e) => setNic(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
-          <input
-            type="date"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
+        {/* NIC and DOB */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex flex-col text-[#212121] font-medium">
+            NIC
+            <input
+              type="text"
+              value={nic}
+              onChange={(e) => setNic(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+              placeholder="12345-6789012-3"
+            />
+          </label>
+          <label className="flex flex-col text-[#212121] font-medium">
+            Date of Birth
+            <input
+              type="date"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+            />
+          </label>
         </div>
 
-        {/* Gender and Appointment Date Fields */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
-          <select
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <input
-            type="date"
-            value={appointmentDate}
-            onChange={(e) => setAppointmentDate(e.target.value)}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          />
-        </div>
-
-        {/* Department and Doctor Selection */}
-        <div className="space-y-4">
-          <select
-            value={department}
-            onChange={(e) => {
-              setDepartment(e.target.value);
-              setDoctorId("");
-            }}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          >
-            {departmentsArray.map((depart, index) => (
-              <option value={depart} key={index}>
-                {depart}
+        {/* Gender and Appointment Date */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex flex-col text-[#212121] font-medium">
+            Gender
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+            >
+              <option value="" disabled>
+                Select Gender
               </option>
-            ))}
-          </select>
-          <select
-            value={doctorId}
-            onChange={(e) => setDoctorId(e.target.value)}
-            disabled={!department}
-            className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-          >
-            <option value="">Select Doctor</option>
-            {doctors
-              .filter((doctor) => doctor.department === department)
-              .map((doctor) => (
-                <option value={doctor._id} key={doctor._id}>
-                  {doctor.firstname} {doctor.lastname}
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </label>
+          <label className="flex flex-col text-[#212121] font-medium">
+            Appointment Date
+            <input
+              type="date"
+              value={appointmentDate}
+              onChange={(e) => setAppointmentDate(e.target.value)}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+            />
+          </label>
+        </div>
+
+        {/* Department and Doctor */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex flex-col text-[#212121] font-medium">
+            Department
+            <select
+              value={department}
+              onChange={(e) => {
+                setDepartment(e.target.value);
+                setDoctorId("");
+              }}
+              required
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+            >
+              {departmentsArray.map((depart, i) => (
+                <option key={i} value={depart}>
+                  {depart}
                 </option>
               ))}
-          </select>
+            </select>
+          </label>
+          <label className="flex flex-col text-[#212121] font-medium">
+            Doctor
+            <select
+              value={doctorId}
+              onChange={(e) => setDoctorId(e.target.value)}
+              required
+              disabled={!department}
+              className="mt-2 px-4 py-3 border border-[#757575] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition disabled:bg-[#F5F5F5]"
+            >
+              <option value="" disabled>
+                Select Doctor
+              </option>
+              {doctors
+                .filter((doctor) => doctor.department === department)
+                .map((doctor) => (
+                  <option key={doctor._id} value={doctor._id}>
+                    {doctor.firstname} {doctor.lastname}
+                  </option>
+                ))}
+            </select>
+          </label>
         </div>
 
-        {/* Address Field */}
-        <textarea
-          rows="10"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Address"
-          className="w-full px-4 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-        />
+        {/* Address */}
+        <label className="flex flex-col text-[#212121] font-medium">
+          Address
+          <textarea
+            rows="5"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Your address here"
+            className="mt-2 px-4 py-3 border border-[#757575] rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
+          />
+        </label>
 
-        {/* Have You Visited Before Checkbox */}
-        <div className="flex items-center space-x-4">
-          <p className="text-gray-700">Have you visited before?</p>
+        {/* Visited Before */}
+        <div className="flex items-center space-x-3 text-[#212121] font-medium">
           <input
             type="checkbox"
             checked={hasVisited}
             onChange={(e) => setHasVisited(e.target.checked)}
-            className="w-6 h-6"
+            id="visited"
+            className="w-5 h-5 border border-[#757575] rounded focus:outline-none focus:ring-2 focus:ring-[#4FC3F7] transition"
           />
+          <label htmlFor="visited">Have you visited before?</label>
         </div>
 
         {/* Submit Button */}
         <div className="text-center mt-8">
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300 cursor-pointer"
+            className="bg-[#1A237E] text-[#FFFFFF] px-8 py-3 rounded-md font-semibold hover:bg-[#4FC3F7] hover:text-[#1A237E] transition-colors duration-300"
           >
-            GET APPOINTMENT
+            Book Appointment
           </button>
         </div>
       </form>

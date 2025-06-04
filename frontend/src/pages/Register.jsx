@@ -45,95 +45,159 @@ const Register = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-12 mt-10">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up</h2>
-        <p className="text-center text-gray-600 mb-6">Please sign up to continue.</p>
-        <form onSubmit={handleRegister} className="space-y-6">
-          {/* Name Fields */}
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+    <div className="min-h-screen flex items-center justify-center bg-[#F5F5F5] px-6 py-12">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-[#1A237E] text-center mb-6">
+          Sign Up
+        </h2>
+        <p className="text-center text-[#757575] mb-8">
+          Please sign up to continue.
+        </p>
+        <form onSubmit={handleRegister} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* First Name */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="firstname">
+              First Name
+            </label>
             <input
+              id="firstname"
               type="text"
               value={firstname}
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
+          </div>
+
+          {/* Last Name */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="lastname">
+              Last Name
+            </label>
             <input
+              id="lastname"
               type="text"
               value={lastname}
               onChange={(e) => setLastName(e.target.value)}
               placeholder="Last Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
           </div>
 
-          {/* Email and Phone Fields */}
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+          {/* Email */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="email">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
+          </div>
+
+          {/* Phone */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="phone">
+              Phone Number
+            </label>
             <input
-              type="number"
+              id="phone"
+              type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Phone Number"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
           </div>
 
-          {/* NIC and DOB Fields */}
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+          {/* NIC */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="nic">
+              NIC
+            </label>
             <input
-              type="number"
+              id="nic"
+              type="text"
               value={nic}
               onChange={(e) => setNic(e.target.value)}
               placeholder="NIC"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-            <input
-              type="date"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
           </div>
 
-          {/* Gender and Password Fields */}
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+          {/* Date of Birth */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="dob">
+              Date of Birth
+            </label>
+            <input
+              id="dob"
+              type="date"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
+            />
+          </div>
+
+          {/* Gender */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="gender">
+              Gender
+            </label>
             <select
+              id="gender"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             >
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
+          </div>
+
+          {/* Password */}
+          <div className="flex flex-col w-full">
+            <label className="mb-1 font-semibold text-[#212121]" htmlFor="password">
+              Password
+            </label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-3 border border-[#1A237E] rounded-md focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
+              required
             />
           </div>
 
-          {/* Already Registered Link */}
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">Already registered?</p>
-            <Link to="/login" className="text-indigo-500 hover:text-indigo-600 font-medium">Login</Link>
+          {/* Already Registered Link and Button - full width */}
+          <div className="sm:col-span-2 flex justify-between items-center text-[#757575]">
+            <p>Already registered?</p>
+            <Link
+              to="/login"
+              className="text-[#4FC3F7] hover:text-[#1A237E] font-semibold transition-colors"
+            >
+              Login
+            </Link>
           </div>
 
-          {/* Register Button */}
-          <div className="text-center">
+          <div className="sm:col-span-2">
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-200"
+              className="w-full py-3 bg-[#1A237E] text-white rounded-md hover:bg-[#4FC3F7] transition-colors duration-200 font-semibold"
             >
               Register
             </button>

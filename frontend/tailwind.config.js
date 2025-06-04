@@ -1,11 +1,15 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+// tailwind.config.js
+module.exports = {
+    content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // If you're using a React project
+    "./public/index.html",        // Include HTML if needed
   ],
   theme: {
-    extend: {},
+    extend: {
+       colors: {
+      softbeige: '#fdf6ee',
+      forestgreen: '#228b22',
+    },
+    },
   },
-  plugins: [],
-}
+};

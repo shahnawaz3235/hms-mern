@@ -14,71 +14,64 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-blue-500 to-teal-500 py-12 text-white mt-10">
-      <div className="container mx-auto px-6 md:flex justify-between space-y-6 md:space-y-0">
+    <footer className="bg-[#1A237E] text-white py-12 mt-10 font-sans">
+      <div className="container mx-auto px-6 md:flex justify-between space-y-8 md:space-y-0">
+        {/* Logo */}
         <div className="flex flex-col items-center md:items-start">
           <img src="/logo.png" alt="logo" className="w-32 mb-4" />
+          <p className="text-[#4FC3F7] text-sm font-semibold">ZeeCare Medical Institute</p>
         </div>
+
+        {/* Quick Links */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+          <h4 className="text-xl font-semibold mb-4 text-[#4FC3F7]">Quick Links</h4>
           <ul className="space-y-2">
-            <li>
-              <Link
-                to="/"
-                className="hover:text-yellow-300 transition-colors duration-200"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/appointment"
-                className="hover:text-yellow-300 transition-colors duration-200"
-              >
-                Appointment
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="hover:text-yellow-300 transition-colors duration-200"
-              >
-                About
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="flex flex-col items-center md:items-start">
-          <h4 className="text-xl font-semibold mb-4">Hours</h4>
-          <ul className="space-y-2">
-            {hours.map((element) => (
-              <li key={element.id} className="flex justify-between w-full">
-                <span>{element.day}</span>
-                <span>{element.time}</span>
+            {["Home", "Appointment", "About"].map((link) => (
+              <li key={link}>
+                <Link
+                  to={`/${link.toLowerCase() === "home" ? "" : link.toLowerCase()}`}
+                  className="hover:text-[#4FC3F7] transition-colors duration-200"
+                >
+                  {link}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
+
+        {/* Hours */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="text-xl font-semibold mb-4">Contact</h4>
-          <div className="flex items-center space-x-2 mb-3">
-            <FaPhone className="text-yellow-300" />
+          <h4 className="text-xl font-semibold mb-4 text-[#4FC3F7]">Hours</h4>
+          <ul className="space-y-2 w-44">
+            {hours.map(({ id, day, time }) => (
+              <li key={id} className="flex justify-between text-sm text-[#B3C7F9]">
+                <span>{day}</span>
+                <span>{time}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div className="flex flex-col items-center md:items-start">
+          <h4 className="text-xl font-semibold mb-4 text-[#4FC3F7]">Contact</h4>
+          <div className="flex items-center space-x-2 mb-3 text-sm text-[#B3C7F9]">
+            <FaPhone className="text-[#4FC3F7]" />
             <span>999-999-9999</span>
           </div>
-          <div className="flex items-center space-x-2 mb-3">
-            <MdEmail className="text-yellow-300" />
+          <div className="flex items-center space-x-2 mb-3 text-sm text-[#B3C7F9]">
+            <MdEmail className="text-[#4FC3F7]" />
             <span>sn@gmail.com</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <FaLocationArrow className="text-yellow-300" />
+          <div className="flex items-center space-x-2 text-sm text-[#B3C7F9]">
+            <FaLocationArrow className="text-[#4FC3F7]" />
             <span>Sargodha, Pakistan</span>
           </div>
         </div>
       </div>
-      <div className="text-center mt-8">
-        <p className="text-sm opacity-75">
-          &copy; 2025 Your Company. All rights reserved.
-        </p>
+
+      <div className="text-center mt-10 text-sm text-[#90CAF9] opacity-80">
+        &copy; 2025 ZeeCare Medical Institute. All rights reserved.
       </div>
     </footer>
   );

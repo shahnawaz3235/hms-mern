@@ -1,62 +1,53 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { FaStethoscope, FaHeartbeat, FaXRay, FaUserNurse } from "react-icons/fa";
+
+const departments = [
+  {
+    id: 1,
+    name: "Cardiology",
+    description: "Advanced cardiac care and diagnostics with compassionate support.",
+    icon: <FaHeartbeat className="text-[#43A047] text-3xl" />,
+  },
+  {
+    id: 2,
+    name: "Radiology",
+    description: "Modern imaging technology for accurate and fast diagnosis.",
+    icon: <FaXRay className="text-[#4682B4] text-3xl" />,
+  },
+  {
+    id: 3,
+    name: "General Medicine",
+    description: "Comprehensive internal medicine care for all age groups.",
+    icon: <FaStethoscope className="text-[#1A237E] text-3xl" />,
+  },
+  {
+    id: 4,
+    name: "Nursing",
+    description: "Professional nursing staff providing 24/7 patient support.",
+    icon: <FaUserNurse className="text-[#FFA000] text-3xl" />,
+  },
+];
 
 const Departments = () => {
-  const departmentsArray = [
-    { name: "Pediatrics", imageUrl: "/departments/pedia.jpg" },
-    { name: "Orthopedics", imageUrl: "/departments/ortho.jpg" },
-    { name: "Cardiology", imageUrl: "/departments/cardio.jpg" },
-    { name: "Neurology", imageUrl: "/departments/neuro.jpg" },
-    { name: "Oncology", imageUrl: "/departments/onco.jpg" },
-    { name: "Radiology", imageUrl: "/departments/radio.jpg" },
-    { name: "Physical Therapy", imageUrl: "/departments/therapy.jpg" },
-    { name: "Dermatology", imageUrl: "/departments/derma.jpg" },
-    { name: "ENT", imageUrl: "/departments/ent.jpg" },
-  ];
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 3000, min: 1324 },
-      items: 4,
-    },
-    desktop: {
-      breakpoint: { max: 1324, min: 1005 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1005, min: 700 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 700, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
-    <div className="container mx-auto px-6 py-16">
-      <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">Our Departments</h2>
-      <Carousel
-        responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        className="space-y-6"
-      >
-        {departmentsArray.map((depart, index) => (
-          <div key={index} className="card bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-            <div className="relative">
-              <img
-                src={depart.imageUrl}
-                alt={`${depart.name}-image`}
-                className="w-full h-64 object-cover transform transition duration-500 hover:scale-110"
-              />
-              <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-4 rounded-md">
-                <p className="text-xl font-semibold">{depart.name}</p>
-              </div>
-            </div>
+    <div className="text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#1A237E] mb-10">
+        Our Departments
+      </h2>
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {departments.map((dept) => (
+          <div
+            key={dept.id}
+            className="bg-white shadow-md rounded-2xl p-6 text-left hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="mb-4">{dept.icon}</div>
+            <h3 className="text-xl font-semibold text-[#212121] mb-2">
+              {dept.name}
+            </h3>
+            <p className="text-[#757575] text-sm">{dept.description}</p>
           </div>
         ))}
-      </Carousel>
+      </div>
     </div>
   );
 };
